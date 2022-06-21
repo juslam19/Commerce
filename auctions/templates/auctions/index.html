@@ -1,0 +1,36 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<br>
+{% if mode == "active" %}
+    <h1><strong>Active Listings</strong></h1>
+{% elif mode == "inactive" %}
+    <h1><strong>Inactive Listings</strong></h1>
+{% else %}
+    <h1><strong>Category: {{mode}} </strong></h1>
+{% endif %}
+<br>
+    <div id="Selected listings">
+        {% for listing in listings %}
+            <a href="{% url 'listing' listing.id %}">
+                <img src="{{ listing.image_url}} " style="max-height:300px">
+                <h4><strong>{{listing.title}}</strong></h4>
+	            <h5>Starting bid: $ {{listing.price}}</h5>
+                <h5>{% if listing.sold == True and listing.bid is not None %}
+                        Sold for: ${{listing.bid}}
+                    {% elif listing.bid is None %}
+                        Be the first to bid!
+                    {% else %}
+                        Current Bid: ${{listing.bid}}
+                    {% endif %}</h5>
+                <h6>{{listing.description}}</h6>
+                            
+	            <h6>Posted by <strong>{{listing.user}}</strong></h6> 
+            </a>
+
+        {% empty %}
+            <h1>No listings</h1>
+        {% endfor %}
+    </div>
+
+{% endblock %}

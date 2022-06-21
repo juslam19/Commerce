@@ -1,0 +1,18 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<br>
+<h1><strong>Categories</strong></h1>
+<br>
+
+<ul>
+    <div>
+        <li><a href="{% url 'category' 'Micellaneous' %}">Micellaneous</a></li>
+        <li><a href="{% url 'category' 'Computers' %}">Computers</a></li>
+        <li><a href="{% url 'category' 'Technology' %}">Technology</a></li>
+        <li><a href="{% url 'category' 'Books' %}">Books</a></li>
+    <div>
+</ul>
+{% endblock %}
