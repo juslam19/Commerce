@@ -1,4 +1,4 @@
-[Commerce](#commerce)
+[eBay Clone](#commerce)
 =====================
 
 Demo video: https://youtu.be/eO4-jjpoWlg
